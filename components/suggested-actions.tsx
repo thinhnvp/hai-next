@@ -19,14 +19,14 @@ function PureSuggestedActions({
 }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the key milestones',
-      label: 'in Ted’s professional career?',
-      action: 'What are the key milestones in Ted’s professional career?',
+      title: 'Give me an elevator pitch',
+      label: 'of Ted’s key career milestones.',
+      action: 'Give me an elevator pitch of Ted’s key career milestones.',
     },
     {
-      title: 'Cho tôi biết các mốc quan trọng',
-      label: `trong sự nghiệp của Ted.`,
-      action: `Cho tôi biết các mốc quan trọng trong sự nghiệp của Ted.`,
+      title: 'Cho tôi một elevator pitch',
+      label: `về các mốc quan trọng trong sự nghiệp của Ted.`,
+      action: `Cho tôi một elevator pitch về các mốc quan trọng trong sự nghiệp của Ted.`,
     },
     {
       title: 'What are his core life values',
