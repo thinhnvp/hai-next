@@ -212,6 +212,8 @@ const PurePreviewMessage = ({
                           result={result}
                           isReadonly={isReadonly}
                         />
+                      ) : toolName === 'getInformation' ? (
+                        <pre>{JSON.stringify(result.answer, null, 2)}</pre>
                       ) : (
                         <pre>{JSON.stringify(result, null, 2)}</pre>
                       )}

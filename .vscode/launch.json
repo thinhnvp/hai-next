@@ -1,0 +1,17 @@
+// .vscode/launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Next.js (API Debug)",
+      "type": "pwa-node",
+      "request": "attach",
+      "port": 9232,
+      "restart": false,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "timeout": 60000
+    }
+  ]
+}

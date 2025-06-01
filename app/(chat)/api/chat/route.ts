@@ -36,6 +36,7 @@ import { after } from 'next/server';
 import type { Chat } from '@/lib/db/schema';
 import { differenceInSeconds } from 'date-fns';
 import { ChatSDKError } from '@/lib/errors';
+import { getInformation } from '@/lib/ai/tools/get-information';
 
 export const maxDuration = 60;
 
@@ -150,26 +151,12 @@ export async function POST(request: Request) {
           model: myProvider.languageModel(selectedChatModel),
           system: systemPrompt({ selectedChatModel, requestHints }),
           messages,
-          maxSteps: 5,
-          experimental_activeTools:
-            selectedChatModel === 'chat-model-reasoning'
-              ? []
-              : [
-                  'getWeather',
-                  'createDocument',
-                  'updateDocument',
-                  'requestSuggestions',
-                ],
-          experimental_transform: smoothStream({ chunking: 'word' }),
+          maxSteps: 12,
+          experimental_activeTools: ['getInformation'],
+          experimental_transform: smoothStream({ chunking: 'line' }),
           experimental_generateMessageId: generateUUID,
           tools: {
-            getWeather,
-            createDocument: createDocument({ session, dataStream }),
-            updateDocument: updateDocument({ session, dataStream }),
-            requestSuggestions: requestSuggestions({
-              session,
-              dataStream,
-            }),
+            getInformation,
           },
           onFinish: async ({ response }) => {
             if (session.user?.id) {
@@ -237,6 +224,11 @@ export async function POST(request: Request) {
     if (error instanceof ChatSDKError) {
       return error.toResponse();
     }
+    console.error('❌ Unhandled error in POST /api/chat:', error);
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }
 
@@ -261,7 +253,7 @@ export async function GET(request: Request) {
     return new ChatSDKError('unauthorized:chat').toResponse();
   }
 
-  let chat: Chat;
+  let chat: Chat | null;
 
   try {
     chat = await getChatById({ id: chatId });
@@ -351,7 +343,7 @@ export async function DELETE(request: Request) {
 
   const chat = await getChatById({ id });
 
-  if (chat.userId !== session.user.id) {
+  if (chat && chat.userId !== session.user.id) {
     return new ChatSDKError('forbidden:chat').toResponse();
   }
 

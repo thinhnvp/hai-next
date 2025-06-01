@@ -92,14 +92,18 @@ export async function saveChat({
   visibility: VisibilityType;
 }) {
   try {
-    return await db.insert(chat).values({
+    const payload = {
       id,
       createdAt: new Date(),
       userId,
       title,
       visibility,
-    });
+    };
+    console.log('🧾 Chat insert payload:', payload);
+
+    return await db.insert(chat).values(payload);
   } catch (error) {
+    console.error('❌ Error saving chat:', error);
     throw new ChatSDKError('bad_request:database', 'Failed to save chat');
   }
 }
@@ -204,7 +208,9 @@ export async function getChatById({ id }: { id: string }) {
     const [selectedChat] = await db.select().from(chat).where(eq(chat.id, id));
     return selectedChat;
   } catch (error) {
-    throw new ChatSDKError('bad_request:database', 'Failed to get chat by id');
+    console.error('DB error in getChatById:', error);
+    return null; // do not throw
+    // throw new ChatSDKError('bad_request:database', 'Failed to get chat by id');
   }
 }
 

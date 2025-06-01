@@ -8,6 +8,7 @@ export type ErrorType =
 
 export type Surface =
   | 'chat'
+  | 'saveChat'
   | 'auth'
   | 'api'
   | 'stream'
@@ -24,6 +25,7 @@ export type ErrorVisibility = 'response' | 'log' | 'none';
 export const visibilityBySurface: Record<Surface, ErrorVisibility> = {
   database: 'log',
   chat: 'response',
+  saveChat: 'response',
   auth: 'response',
   stream: 'response',
   api: 'response',
