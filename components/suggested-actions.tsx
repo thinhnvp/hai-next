@@ -20,19 +20,18 @@ function PureSuggestedActions({
   const suggestedActions = [
     {
       title: 'What are the key milestones',
-      label: 'in Ted’s professional career and expertise?',
-      action:
-        'What are the key milestones in Ted’s professional career and expertise?',
-    },
-    {
-      title: 'What are his core life values ',
-      label: `and personal philosophies?`,
-      action: `What are his core life values and personal philosophies?`,
+      label: 'in Ted’s professional career?',
+      action: 'What are the key milestones in Ted’s professional career?',
     },
     {
       title: 'Cho tôi biết các mốc quan trọng',
-      label: `trong sự nghiệp và chuyên môn của Ted.`,
-      action: `Cho tôi biết các mốc quan trọng trong sự nghiệp và chuyên môn của Ted.`,
+      label: `trong sự nghiệp của Ted.`,
+      action: `Cho tôi biết các mốc quan trọng trong sự nghiệp của Ted.`,
+    },
+    {
+      title: 'What are his core life values',
+      label: `and personal philosophies?`,
+      action: `What are his core life values and personal philosophies?`,
     },
     {
       title: 'Cho tôi biết những giá trị sống',
