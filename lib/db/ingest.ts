@@ -14,7 +14,7 @@ async function* walk(dir: string): AsyncGenerator<string> {
 }
 
 (async () => {
-  const root = 'data/raw';
+  const root = 'data/not-so-raw';
 
   for await (const file of walk(root)) {
     const raw = await fs.readFile(file, 'utf8');
