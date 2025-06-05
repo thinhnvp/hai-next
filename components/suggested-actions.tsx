@@ -19,24 +19,27 @@ function PureSuggestedActions({
 }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'Give me an elevator pitch',
-      label: 'of Ted’s key career milestones.',
-      action: 'Give me an elevator pitch of Ted’s key career milestones.',
+      title: 'Hit me with Ted’s career highlights!',
+      label: 'Quick, fun overview of where he’s been',
+      action:
+        'Hit me with Ted’s career highlights! Quick, fun overview of where he’s been',
     },
     {
-      title: 'Cho tôi một elevator pitch',
-      label: `về các mốc quan trọng trong sự nghiệp của Ted.`,
-      action: `Cho tôi một elevator pitch về các mốc quan trọng trong sự nghiệp của Ted.`,
+      title: 'Cho tôi biết sơ qua hành trình sự nghiệp của Ted!',
+      label: 'Tóm tắt vui vẻ các cột mốc đáng chú ý',
+      action:
+        'Cho tôi biết sơ qua hành trình sự nghiệp của Ted! Tóm tắt vui vẻ các cột mốc đáng chú ý',
     },
     {
-      title: 'What are his core life values',
-      label: `and personal philosophies?`,
-      action: `What are his core life values and personal philosophies?`,
+      title: 'What keeps Ted going?',
+      label: 'Tell me his life principles and passions',
+      action: 'What keeps Ted going? Tell me his life principles and passions',
     },
     {
-      title: 'Cho tôi biết những giá trị sống',
-      label: 'và triết lý cá nhân của Ted.',
-      action: 'Cho tôi biết những giá trị sống và triết lý cá nhân của Ted.',
+      title: 'Ted có những giá trị gì?',
+      label: 'Chia sẻ triết lý sống và điều thôi thúc Ted',
+      action:
+        'Ted có những giá trị gì? Chia sẻ triết lý sống và điều thôi thúc Ted',
     },
   ];
 
