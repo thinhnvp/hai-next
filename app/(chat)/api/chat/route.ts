@@ -147,7 +147,7 @@ export async function POST(request: Request) {
           model: myProvider.languageModel(selectedChatModel),
           system: systemPrompt({ selectedChatModel, requestHints }),
           messages,
-          maxSteps: 24,
+          maxSteps: 48,
           experimental_activeTools: ['getInformation'],
           experimental_transform: smoothStream({ chunking: 'line' }),
           experimental_generateMessageId: generateUUID,
