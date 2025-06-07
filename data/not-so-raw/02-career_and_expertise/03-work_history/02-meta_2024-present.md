@@ -1,4 +1,4 @@
-**Position**: IC4 Software Engineer  
+**Position**: Software Engineer  
 **Company**: Meta (since June 2024)  
 **Team**: AD RANKING DATA SERVICE (ARDS)
 
